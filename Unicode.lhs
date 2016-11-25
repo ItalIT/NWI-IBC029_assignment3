@@ -10,7 +10,7 @@
 > infixr 3 ∧
 > (∧)  ∷  Bool → Bool → Bool
 > a ∧ b  =  a && b
-               
+
 > infix 4 ≤, ≥
 > (≤), (≥)  ∷  (Ord a) ⇒ a → a → Bool
 > a ≤ b  =  a <= b
