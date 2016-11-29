@@ -63,6 +63,26 @@ There are n! permutations of a list with n entries.
 exercise 5.3
 ============
 
+Here I inserted the code for convenience.
+
+> runs :: (Ord a) => [a] -> [[a]]
+> runs [] = []
+> runs (a:as) = addToRun a $ runs as
+
+> addToRun :: (Ord a) => a -> [[a]] -> [[a]]
+> addToRun a [] = [[a]]
+> addToRun a ((c:cs):rs)
+>     | a <= c = (a:c:cs):rs
+>     | otherwise = [a]:(c:cs):rs
+
+Check that the runs contains ordered content.
+
+(permutations ['a'..'d'] --> and . map ordered) runs
+
+Check that the runs themselfs are in the right order.
+
+(permutations ['a'..'d'] ==> \inp res -> concat res == inp) runs
+
 exercise 5.4
 ============
 
