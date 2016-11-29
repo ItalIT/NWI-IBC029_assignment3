@@ -40,6 +40,13 @@ author: Hendrik Werner s4549775
 exercise 5.1
 ============
 
+> ordered :: (Ord a) => Property [a]
+> ordered [] = True
+> ordered [a] = True
+> ordered (a:b:as)
+>     | a <= b = ordered (b:as)
+>     | otherwise = False
+
 exercise 5.2
 ============
 
