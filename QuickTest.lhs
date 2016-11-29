@@ -86,5 +86,24 @@ Check that the runs themselfs are in the right order.
 exercise 5.4
 ============
 
+> isIntegerSqrt :: Property (Integer -> Integer)
+> isIntegerSqrt f = ([0..100] ==> (\inp res -> res == integerSqrt inp)) f
+
+> integerSqrt :: Integer -> Integer
+> integerSqrt i = toInteger $ fromIntegral $ floor $ sqrt $ fromIntegral i
+
+The following expression can be used to test if isqrt is a proper integerSqrt
+function.
+
+isIntegerSqrt isqrt
+
+Of course just by testing it is impossible to establish the correctness of the
+function because Integer is an unbounded data type and we cannot exhaustively
+try all possible values. We can however establish that a function is NOT a
+proper integerSqrt function.
+
+Is a functions fails this test is is definitely wrong. If it passes the test it
+is probably correct.
+
 exercise 5.5
 ============
