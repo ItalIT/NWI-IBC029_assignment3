@@ -107,3 +107,9 @@ is probably correct.
 
 exercise 5.5
 ============
+
+> infixr 4 ⊗
+> (⊗) :: Probes a -> Probes b -> Probes (a, b)
+> (⊗) a b = [(q, p) | q <- a, p <- b]
+
+a ⊗ b produces (lenth a) * (length b) items.
