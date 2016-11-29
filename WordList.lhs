@@ -3,6 +3,7 @@
 > where
 > import Prelude hiding (Word)
 > import Unicode
+> import Data.Char
 > import Data.List
 
 > type Word  =  String
@@ -24,6 +25,16 @@ wordList ∷ String → [(Word, Int)]
 --------------------------------------------------------------------------------
 
 author: Hendrik Werner s4549775
+author: Jasper Haasdijk s4449754
 
 exercise 1
 ==========
+
+> wordList :: String -> [(Word, Int)]
+> wordList s = sortOn (\(a, b) -> b) $ map (\x -> (head x, length x)) (groups s)
+
+> groups :: String -> [[String]]
+> groups s = group $ sort $ words $ sanitize s
+
+> sanitize :: String -> String
+> sanitize s = filter (\x -> isLetter x || isSpace x) $ map toLower s
