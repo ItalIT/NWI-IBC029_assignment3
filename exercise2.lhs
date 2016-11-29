@@ -21,7 +21,7 @@ allFalse x = allTrue $ map not x
 exercise 2.3
 ============
 
-This even works for infinite lists, as the or operator short curcuits.
+This even works for infinite lists, as the or operator short circuits.
 
 > member :: (Eq a) => a -> [a] -> Bool
 > member e [] = False
