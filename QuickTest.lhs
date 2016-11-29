@@ -50,6 +50,16 @@ exercise 5.1
 exercise 5.2
 ============
 
+> permutations :: [a] -> Probes [a]
+> permutations [] = [[]]
+> permutations (a:as) = [x | p <- permutations as, x <- insertEveryWhere a p]
+
+> insertEveryWhere :: a -> [a] -> [[a]]
+> insertEveryWhere a [] = [[a]]
+> insertEveryWhere a (b:bs) = (a:b:bs):[b:x | x <- insertEveryWhere a bs]
+
+There are n! permutations of a list with n entries.
+
 exercise 5.3
 ============
 
