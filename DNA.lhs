@@ -106,3 +106,8 @@ exercise 4.2
 
 exercise 4.3
 ============
+
+I do not get what is supposed to be difficult about this.
+
+> longestAtMostTenAs :: DNA -> Integer
+> longestAtMostTenAs d = min 10 (longestOnlyAs d)
