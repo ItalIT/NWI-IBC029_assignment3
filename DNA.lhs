@@ -94,5 +94,15 @@ The same but starting at index 0, which in most cases is what you want.
 exercise 4.2
 ============
 
+> longestOnlyAs :: DNA -> Integer
+> longestOnlyAs [] = 0
+> longestOnlyAs a@(b:bs) = max (longestOnlyAsStart a) (longestOnlyAs bs)
+
+> longestOnlyAsStart :: DNA -> Integer
+> longestOnlyAsStart [] = 0
+> longestOnlyAsStart (b:bs)
+>     | b == A = 1 + (longestOnlyAsStart bs)
+>     | otherwise = 0
+
 exercise 4.3
 ============
