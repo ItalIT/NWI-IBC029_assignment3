@@ -67,6 +67,30 @@ author: Hendrik Werner s4549775
 exercise 4.1
 ============
 
+> contains :: Segment -> DNA -> Bool
+> contains s [] = False
+> contains [] d = True
+> contains s e@(d:ds)
+>     | length s > length e = False
+>     | s == take (length s) e = True
+>     | otherwise = contains s ds
+
+This version returns a list of positions of occurences of a segment in some dna
+beginning at i.
+
+> positions :: Integer -> Segment -> DNA -> [Integer]
+> positions i s [] = []
+> positions i s e@(d:ds)
+>     | length s > length e = []
+>     | take (length s) e == s = (:) i $ positions (i + 1) s ds
+>     | otherwise = positions (i + 1) s ds
+
+The same but starting at index 0, which in most cases is what you want.
+
+> positionsFromZero :: Segment -> DNA -> [Integer]
+> positionsFromZero = positions 0
+
+
 exercise 4.2
 ============
 
