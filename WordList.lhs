@@ -38,3 +38,11 @@ exercise 1
 
 > sanitize :: String -> String
 > sanitize s = filter (\x -> isLetter x || isSpace x) $ map toLower s
+
+> formatRuns :: (Show a) => [a] -> String
+> formatRuns as = intercalate "\n" $ map show as
+
+
+
+When using "putStr $ formatRuns $ wordList lorem" the output is shown one entry
+per line.
