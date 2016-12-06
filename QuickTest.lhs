@@ -91,7 +91,7 @@ exercise 5.4
 > isIntegerSqrt f = ([0..100] ==> (\inp res -> res == integerSqrt inp)) f
 
 > integerSqrt :: Integer -> Integer
-> integerSqrt i = toInteger $ fromIntegral $ floor $ sqrt $ fromIntegral i
+> integerSqrt = floor . sqrt . fromIntegral
 
 The following expression can be used to test if isqrt is a proper integerSqrt
 function.
